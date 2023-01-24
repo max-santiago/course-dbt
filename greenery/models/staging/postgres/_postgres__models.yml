@@ -3,15 +3,46 @@ version: 2
 models:
   - name: stg_addresses
     description: Staging model for addresses in postgres database.
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+          - unique
 
   - name: stg_events
     description: Staging model for events in postgres database.
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
 
   - name: stg_order_items
     description: Staging model for order items in postgres database.
+    columns:
+      - name: order_id
+        tests:
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: quantity
+        tests:
+          - is_positive
+
 
   - name: stg_orders
     description: Staging model for orders in postgres database.
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        tests:
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
+
 
   - name: stg_products
     description: Staging model for products in postgres database.
@@ -21,3 +52,8 @@ models:
 
   - name: stg_users
     description: Staging model for users in postgres database.
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: Contains attributes and metrics at the product grain.
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_users
+    description: Contains attributes and metrics at the user grain.
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
