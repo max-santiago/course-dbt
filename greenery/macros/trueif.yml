@@ -1,0 +1,12 @@
+version: 2
+
+macros:
+  - name: trueif
+    description: A macro that checks if a column equals a given string. Returns a boolean with the condition result.
+    arguments:
+      - name: column_name
+        type: string
+        description: The name of the column you want to test.
+      - name: column_value
+        type: string
+        description: The string against which the column is checked.
