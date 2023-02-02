@@ -26,7 +26,7 @@ I created the `trueif()` macro and used it in the `fact_sessions` model. I insta
 ### Orders that changed
 Code to obtain them:
 ```select order_id from dev_db.bdc_maxsantiagobrooklyndataco.orders_snapshot
-qualify rank() over (order by dbt_updated_at desc) = 1````
+qualify rank() over (order by dbt_updated_at desc) = 1```
 
 - 29d20dcd-d0c4-4bca-a52d-fc9363b5d7c6
 - e2729b7d-e313-4a6f-9444-f7f65ae8db9a
@@ -61,7 +61,7 @@ Answer: ~79.8%
 
 ### Query to fetch orders that have changed since the first snapshot run
 
-'select * from dev_db.bdc_maxsantiagobrooklyndataco.orders_snapshot where dbt_valid_to is not null`
+select * from dev_db.bdc_maxsantiagobrooklyndataco.orders_snapshot where dbt_valid_to is not null`
 
 - 265f9aae-561a-4232-a78a-7052466e46b7
 - e42ba9a9-986a-4f00-8dd2-5cf8462c74ea
